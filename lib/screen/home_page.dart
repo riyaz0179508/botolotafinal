@@ -1,9 +1,8 @@
 import 'dart:async';
 import 'dart:io';
 import 'package:connectivity_plus/connectivity_plus.dart';
-import 'package:fluttertoast/fluttertoast.dart';
 import 'package:flutter/material.dart';
-import 'package:webview_flutter/webview_flutter.dart';
+import 'package:flutter_webview_pro/webview_flutter.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -12,20 +11,10 @@ class HomePage extends StatefulWidget {
   _HomePageState createState() => _HomePageState();
 }
 
+
 StreamSubscription? subscription;
 bool loading = true;
 class _HomePageState extends State<HomePage> {
-  Future checkConnection() async {
-    var connectivityResult = await (Connectivity().checkConnectivity());
-    if (connectivityResult == ConnectivityResult.mobile) {
-      Fluttertoast.showToast(msg: "Connected with Mobile");
-    } else if (connectivityResult == ConnectivityResult.wifi) {
-      Fluttertoast.showToast(msg: "Connected with Wifi");
-    } else {
-      Fluttertoast.showToast(msg: "No internet Connection");
-    }
-  }
-
   @override
   initState() {
     super.initState();
@@ -86,6 +75,7 @@ class _HomePageState extends State<HomePage> {
                               : Stack(),
                         ],
                       ))),
+
     );
   }
 }
